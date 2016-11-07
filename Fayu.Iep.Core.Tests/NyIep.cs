@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿
+using Fayu.Iep.Core.Fields;
 
 namespace Fayu.Iep.Core.Tests
 {
     public sealed class DocumentSpecs
     {
-        private readonly IDocument _doc = new Document();
+        private readonly IDocumentDefinition _doc = new DocumentDefinition();
 
         public DocumentSpecs()
         {
@@ -117,10 +115,15 @@ namespace Fayu.Iep.Core.Tests
         {
             var section4 = new DocumentSection("Measurable annual goals");
             var tableField = new TableField("Masurable annual goals");
+            var shortTermTable = new TableField("Short-Term intrucinal......");
+
             tableField.Fields.Add(new TextField("Annual Goals"));
             tableField.Fields.Add(new TextField("Criteria"));
             tableField.Fields.Add(new TextField("Method"));
             tableField.Fields.Add(new TextField("Schedule"));
+
+            shortTermTable.Fields.Add(new TextField(""));
+            tableField.Fields.Add(shortTermTable);
 
             section4.Fields.Add(tableField);
             _doc.Sections.Add(section4);
@@ -131,8 +134,19 @@ namespace Fayu.Iep.Core.Tests
             var section5 = new DocumentSection("Reporting progress to parents");
             section5.Fields.Add(new TextField("Identify when periodic reports on the student's progress toward meeting........."));
 
-
             _doc.Sections.Add(section5);
+        }
+
+        public void Section6()
+        {
+            var section6 = new DocumentSection("Recommended special education programs and services");
+            var tableField = new TableField("");
+            var specEdTable = new TableField("Special Education Program:");
+
+            specEdTable.Fields.Add(new TextField(""));
+
+            tableField.Fields.Add(specEdTable);
+            _doc.Sections.Add(section6);
         }
     }
 }

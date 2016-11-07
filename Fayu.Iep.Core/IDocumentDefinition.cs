@@ -5,10 +5,9 @@ using System.Threading.Tasks;
 
 namespace Fayu.Iep.Core
 {
-    public interface IDocument
+    public interface IDocumentDefinition
     {
         string Name { get; set; }
         ICollection<IDocumentSection> Sections { get; set; }
-        DocumentState State { get; set; }
     }
 }
